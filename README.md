@@ -34,3 +34,10 @@ Suderinamumo taisyklė kiekvienam formatui:
 Beta. Formatai gali pildytis; esami laukai keičiami tik keliant major versiją.
 
 Klausimai / pasiūlymai — [Issues](../../issues).
+
+---
+
+## Licencija
+
+Dokumentacija — [CC BY 4.0](LICENSE). Galima laisvai naudoti, adaptuoti ir
+įgyvendinti (net komerciškai), nurodžius šaltinį.
