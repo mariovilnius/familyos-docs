@@ -207,7 +207,19 @@ Pakeitimų istorija — [../CHANGELOG.md](../CHANGELOG.md).
 
 ---
 
-## 9. Minimalus pavyzdys
+## 9. Importerio aprėptis (fazė 1)
+
+Formatas (visi 8 tipai) galioja ir validuojamas. familyOS importeris
+(`POST /import`) šiuo metu **įrašo**: `member`, `chore`, `shopping_list`,
+`shopping_item` (su nuorodų sprendimu ir natūralaus rakto idempotentiškumu).
+`event`, `account`, `transaction`, `purchase` — **priimami ir validūs**, bet dar
+neįrašomi: grąžinami `warnings[]` ir suskaičiuojami `skipped`. Aprėptis
+plečiama nekeičiant formato.
+
+Įrodyta automatiniais testais: importas → įrašymas, skip+warn, idempotentiškas
+perimportavimas be dublikatų, versijos ir rolės apsaugos.
+
+## 10. Minimalus pavyzdys
 
 Žr. [`../examples/sample.familyos`](../examples/sample.familyos) — 12 įrašų,
 visi 8 tipai.

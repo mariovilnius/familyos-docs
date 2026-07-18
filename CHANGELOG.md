@@ -5,6 +5,17 @@ Visi reikšmingi dokumentacijos ir formatų pakeitimai.
 Formatas remiasi [Keep a Changelog](https://keepachangelog.com/) principu.
 Repozitorijaus versijos — [SemVer](https://semver.org/).
 
+## [Nepaskelbta]
+
+### Pridėta
+- Licencija — CC BY 4.0 ([LICENSE](LICENSE)).
+
+### Pakeista
+- `spec/import-format.md` §9: importerio aprėptis (fazė 1) — formatas galioja
+  visiems 8 tipams; įrašomi `member`/`chore`/`shopping_list`/`shopping_item`,
+  likę priimami+validūs, bet dar neįrašomi (skip+warn). Formato versija
+  nesikeičia (1.0). Įrodyta e2e testais.
+
 ## [1.0.0] — 2026-07-17
 
 ### Pridėta
