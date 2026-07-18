@@ -207,17 +207,27 @@ Pakeitimų istorija — [../CHANGELOG.md](../CHANGELOG.md).
 
 ---
 
-## 9. Importerio aprėptis (fazė 1)
+## 9. Importerio aprėptis
 
-Formatas (visi 8 tipai) galioja ir validuojamas. familyOS importeris
-(`POST /import`) šiuo metu **įrašo**: `member`, `chore`, `shopping_list`,
-`shopping_item` (su nuorodų sprendimu ir natūralaus rakto idempotentiškumu).
-`event`, `account`, `transaction`, `purchase` — **priimami ir validūs**, bet dar
-neįrašomi: grąžinami `warnings[]` ir suskaičiuojami `skipped`. Aprėptis
-plečiama nekeičiant formato.
+familyOS importeris (`POST /import`) įrašo **visus 8 formato 1.0 tipus**:
+`member`, `chore`, `shopping_list`, `shopping_item`, `event`, `account`,
+`transaction`, `purchase`.
 
-Įrodyta automatiniais testais: importas → įrašymas, skip+warn, idempotentiškas
-perimportavimas be dublikatų, versijos ir rolės apsaugos.
+Numatytosios reikšmės, kurių faile gali nebūti:
+
+| Tipas | Numatyta |
+|---|---|
+| `account` | tipas `CHECKING`; valiuta — namų ūkio bazinė |
+| `event` | `end` nenurodžius → +60 min. nuo `start` |
+| `transaction` | valiuta — sąskaitos; kategorija sukuriama pagal pavadinimą (rūšis pagal sumos ženklą) |
+| `purchase` | `date` nenurodžius → šiandien; suma be `amount` → 0 |
+
+Idempotentiškumas: `transaction` — pagal `externalId` (jei yra); kiti — pagal
+natūralų raktą (narys → `nickname`, darbas → pavadinimas, įvykis →
+pavadinimas + pradžia).
+
+Įrodyta automatiniais testais ir realiu [`examples/sample.familyos`](../examples/sample.familyos)
+importu: **8/8 tipų sukurta, 0 praleista, 0 įspėjimų**.
 
 ## 10. Minimalus pavyzdys
 

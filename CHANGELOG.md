@@ -11,7 +11,10 @@ Repozitorijaus versijos — [SemVer](https://semver.org/).
 - Licencija — CC BY 4.0 ([LICENSE](LICENSE)).
 
 ### Pakeista
-- `spec/import-format.md` §9: importerio aprėptis (fazė 1) — formatas galioja
+- `spec/import-format.md` §9: **pilna importerio aprėptis** — visi 8 tipai
+  įrašomi (patikrinta importuojant `examples/sample.familyos`: 8/8, 0 praleista,
+  0 įspėjimų). Formato versija nesikeičia (1.0).
+- (anksčiau) importerio aprėptis (fazė 1) — formatas galioja
   visiems 8 tipams; įrašomi `member`/`chore`/`shopping_list`/`shopping_item`,
   likę priimami+validūs, bet dar neįrašomi (skip+warn). Formato versija
   nesikeičia (1.0). Įrodyta e2e testais.
