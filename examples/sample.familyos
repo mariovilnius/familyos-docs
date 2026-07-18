@@ -1,0 +1,77 @@
+{
+  "familyos": "1.0",
+  "kind": "familyos.import",
+  "generatedAt": "2026-07-17T10:00:00Z",
+  "source": "todoist",
+  "household": {
+    "name": "Kazlauskai",
+    "baseCurrency": "EUR",
+    "timezone": "Europe/Vilnius"
+  },
+  "records": [
+    { "type": "member", "nickname": "Jonas", "role": "CHILD" },
+    { "type": "member", "nickname": "Rūta", "role": "ADULT" },
+
+    {
+      "type": "chore",
+      "content": "Išnešti šiukšles",
+      "note": "Antradieniais ir penktadieniais",
+      "assignees": ["Jonas"],
+      "rrule": "FREQ=WEEKLY;BYDAY=TU,FR",
+      "dueTime": "18:00",
+      "priority": 2,
+      "points": 10,
+      "coins": 5,
+      "externalId": "todoist:6f21a"
+    },
+    {
+      "type": "chore",
+      "content": "Nuvalyti dulkes svetainėje",
+      "assignees": ["Jonas"],
+      "due": "2026-07-19",
+      "points": 8,
+      "externalId": "todoist:6f21b"
+    },
+
+    { "type": "shopping_list", "name": "Maxima", "ref": "maxima" },
+    { "type": "shopping_item", "list": "maxima", "name": "Pienas", "quantity": "2", "unit": "l" },
+    { "type": "shopping_item", "list": "maxima", "name": "Duona", "quantity": "1" },
+
+    {
+      "type": "event",
+      "title": "Odontologas",
+      "start": "2026-07-20T09:30:00+03:00",
+      "end": "2026-07-20T10:15:00+03:00",
+      "location": "Klinika",
+      "attendees": ["Jonas", "Rūta"],
+      "externalId": "gcal:abc123"
+    },
+
+    { "type": "account", "name": "Swedbank", "ref": "swed", "currency": "EUR", "isShared": true },
+    {
+      "type": "transaction",
+      "account": "swed",
+      "amount": "-12.50",
+      "category": "Maistas",
+      "merchant": "Maxima",
+      "date": "2026-07-15",
+      "externalId": "bank:tx:99812"
+    },
+    {
+      "type": "transaction",
+      "account": "swed",
+      "amount": "2400.00",
+      "category": "Atlyginimas",
+      "date": "2026-07-01",
+      "externalId": "bank:tx:99700"
+    },
+
+    {
+      "type": "purchase",
+      "item": "Dulkių siurblys",
+      "amount": "189.00",
+      "date": "2026-06-01",
+      "warrantyUntil": "2028-06-01"
+    }
+  ]
+}
