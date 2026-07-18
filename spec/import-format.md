@@ -176,9 +176,15 @@ Sudėtingesnes rašyk tiesiai RFC 5545 (`FREQ=...`).
 
 ## 6. Idempotentiškumas ir kartojimas
 
-- Įrašas su `externalId` → **upsert** pagal (namų ūkis, type, externalId).
-  Perimportavus tą patį failą — atnaujina, ne dubliuoja.
-- Be `externalId` → visada **insert** (kartojant atsiras dublikatai).
+- `transaction` su `externalId` → **upsert** pagal (namų ūkis, externalId).
+  Be `externalId` transakcija visada **įterpiama** (kartojant atsiras dublikatai)
+  — todėl bankų įrašams `externalId` rekomenduojamas.
+- Kiti tipai — **upsert pagal natūralų raktą**, net be `externalId`:
+  narys → `nickname`; darbas → pavadinimas; sąrašas/sąskaita → pavadinimas;
+  prekė → (sąrašas + pavadinimas); įvykis → (pavadinimas + pradžia);
+  pirkinys → (pavadinimas + data).
+- Praktinė išvada: **tą patį failą galima kelti pakartotinai** — įrašai
+  atnaujinami, dublikatai nekuriami (išskyrus transakcijas be `externalId`).
 - Rezultatas grąžinamas:
   ```jsonc
   { "created": { "chore": 12, "event": 3 }, "updated": { "chore": 2 },
