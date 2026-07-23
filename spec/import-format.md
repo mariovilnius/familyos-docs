@@ -235,6 +235,14 @@ pavadinimas + pradžia).
 Įrodyta automatiniais testais ir realiu [`examples/sample.familyos`](../examples/sample.familyos)
 importu: **8/8 tipų sukurta, 0 praleista, 0 įspėjimų**.
 
+### Eksportas (round-trip)
+
+familyOS eksportas grąžina namų ūkį kaip `.familyos` bundle
+(`source: "familyos-export"`) — atvirkštinis importo veiksmas. ID nešami kaip
+`ref` (sąrašai/sąskaitos) ir `externalId` (transakcijos), todėl **eksportuoji →
+importuoji kitur → gaunamas tas pats grafas**, o perimportavimas idempotentiškas.
+Įrodyta round-trip testu (eksportas iš A → importas į naują B, vienodi kiekiai).
+
 ## 10. Minimalus pavyzdys
 
 Žr. [`../examples/sample.familyos`](../examples/sample.familyos) — 12 įrašų,

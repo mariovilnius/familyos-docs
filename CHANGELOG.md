@@ -7,6 +7,9 @@ Repozitorijaus versijos — [SemVer](https://semver.org/).
 
 ## [Nepaskelbta]
 
+### Pridėta (be formato pakeitimų)
+- Eksportas (round-trip): `.familyos` bundle iš namų ūkio; export→import atkuria tą patį grafą.
+
 ### Pridėta
 - Licencija — CC BY 4.0 ([LICENSE](LICENSE)).
 
